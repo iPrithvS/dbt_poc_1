@@ -8,7 +8,7 @@ import (
 )
 func handler(w http.ResponseWriter, r *http.Request) {
         log.Print("helloworld: received a request")
-cmd := exec.Command("/bin/sh", "script.sh")
+cmd := exec.Command("/bin/sh", "script.sh", run, 77)
         cmd.Stdout = os.Stdout
  cmd.Stderr = os.Stderr
  err := cmd.Run()
@@ -26,3 +26,4 @@ port := os.Getenv("PORT")
 log.Printf("helloworld: listening on %s", port)
         log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
 }
+
