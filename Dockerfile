@@ -10,4 +10,6 @@ COPY --from=builder /app/server ./
 COPY script.sh ./
 COPY . ./
 
+COPY etls ./etls
+
 ENTRYPOINT "./server"

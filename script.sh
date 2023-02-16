@@ -7,6 +7,5 @@ dbt debug --target dev --profiles-dir .
 dbt debug --target prod --profiles-dir .
 dbt $1 --target prod --profiles-dir .
 
-echo "The first parameter is: $1"
-echo "The second parameter is: $2"
+dbt $1 --vars "var_cust_id: '$2'" --select standard_reports
 
