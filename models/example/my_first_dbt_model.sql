@@ -7,18 +7,22 @@
     Try changing "table" to "view" below
 */
 
-{{ config(materialized='table') }}
+{{ 
+  config(
+    materialized='table',
+    post_hook='SELECT pg_sleep(120)'
+  ) 
+}}
 
 with source_data as (
-
     select 1 as id
     union all
     select null as id
-
 )
 
 select *
 from source_data
+
 
 /*
     Uncomment the line below to remove records with null `id` values
